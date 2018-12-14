@@ -36,9 +36,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MediaPlayerUI, Version=0.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MediaPlayerUI.NET.0.8.0\lib\net45\MediaPlayerUI.dll</HintPath>
-    </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
     </Reference>
@@ -70,6 +67,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNewFilmControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddNewFilmControl.Designer.cs">
+      <DependentUpon>AddNewFilmControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorForm.Designer.cs">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FilmCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -88,8 +97,32 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelAdminaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PanelAdminaForm.Designer.cs">
+      <DependentUpon>PanelAdminaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddNewFilmControl.resx">
+      <DependentUpon>AddNewFilmControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorForm.resx">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FilmCard.resx">
       <DependentUpon>FilmCard.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +131,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelAdminaForm.resx">
+      <DependentUpon>PanelAdminaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

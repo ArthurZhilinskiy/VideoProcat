@@ -43,6 +43,7 @@
             this.metroTile1.TabIndex = 0;
             this.metroTile1.UseSelectable = true;
             this.metroTile1.UseTileImage = true;
+            this.metroTile1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // metroLabel1
             // 
@@ -74,6 +75,7 @@
             this.metroButton2.Text = "Купить";
             this.metroButton2.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
             // FilmCard
             // 

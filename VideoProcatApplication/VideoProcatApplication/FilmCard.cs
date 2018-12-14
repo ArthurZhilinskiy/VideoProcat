@@ -60,5 +60,15 @@ namespace VideoProcatApplication
             form2.axWindowsMediaPlayer1.URL = treyler;
             form2.axWindowsMediaPlayer1.Ctlcontrols.play();
         }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            Form3 form3 = new Form3();
+            form3.pictureBox1.Image = Image.FromFile(image);
+            form3.mlName.Text = name;
+            form3.mlZhanr.Text = zhanr;
+            form3.mlYear.Text = year;
+            form3.ShowDialog();
+        }
     }
 }

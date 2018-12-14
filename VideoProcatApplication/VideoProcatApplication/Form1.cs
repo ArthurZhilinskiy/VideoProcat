@@ -45,8 +45,6 @@ namespace VideoProcatApplication
             {
                 string image_path = Application.StartupPath + @"\" + reader["Video_Image"].ToString();
                 FilmCard cart = new FilmCard(reader["Video_name"].ToString(), reader["Video_zhanr"].ToString(), reader["Video_Descryption"].ToString(), reader["Video_Year"].ToString(), reader["Video_Treyler"].ToString(), image_path, this);
-                
-                cart.metroTile1.Click += new System.EventHandler(cart_Click);
 
                 flowLayoutPanel1.Controls.Add(cart);
             }
@@ -55,7 +53,7 @@ namespace VideoProcatApplication
 
         private void cart_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void metroLink1_Click(object sender, EventArgs e)
@@ -187,6 +185,12 @@ namespace VideoProcatApplication
                 flowLayoutPanel1.Controls.Add(cart);
             }
             connection.Close();
+        }
+
+        private void metroLink5_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
         }
     }
 }

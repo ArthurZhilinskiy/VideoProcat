@@ -90,12 +90,13 @@
             this.metroLink5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.metroLink5.Location = new System.Drawing.Point(23, 415);
             this.metroLink5.Name = "metroLink5";
-            this.metroLink5.Size = new System.Drawing.Size(96, 23);
+            this.metroLink5.Size = new System.Drawing.Size(148, 23);
             this.metroLink5.TabIndex = 0;
-            this.metroLink5.Text = "Вы владлец?";
+            this.metroLink5.Text = "Панель администратора";
             this.metroLink5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.metroLink5.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLink5.UseSelectable = true;
+            this.metroLink5.Click += new System.EventHandler(this.metroLink5_Click);
             // 
             // metroTextBox1
             // 
@@ -185,31 +186,7 @@
         private MetroFramework.Controls.MetroLink metroLink5;
         private MetroFramework.Controls.MetroTextBox metroTextBox1;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private FilmCard filmCard1;
-        private FilmCard filmCard2;
-        private FilmCard filmCard3;
-        private FilmCard filmCard4;
-        private FilmCard filmCard9;
-        private FilmCard filmCard10;
-        private FilmCard filmCard11;
-        private FilmCard filmCard5;
-        private FilmCard filmCard6;
-        private FilmCard filmCard7;
-        private FilmCard filmCard8;
-        private FilmCard filmCard25;
-        private FilmCard filmCard24;
-        private FilmCard filmCard23;
-        private FilmCard filmCard22;
-        private FilmCard filmCard21;
-        private FilmCard filmCard20;
-        private FilmCard filmCard19;
-        private FilmCard filmCard18;
-        private FilmCard filmCard17;
-        private FilmCard filmCard16;
-        private FilmCard filmCard15;
-        private FilmCard filmCard14;
-        private FilmCard filmCard13;
-        private FilmCard filmCard12;
+       
         private MetroFramework.Controls.MetroLink metroLink4;
     }
 }
