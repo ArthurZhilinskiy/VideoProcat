@@ -30,57 +30,86 @@ namespace VideoProcatApplication
         {
             copyTo = Application.StartupPath + mtbImage.Text;
             AddData();
+            pictureBox1.Image = null;
+            mtbName.Text = String.Empty;
+            mtbImage.Text = String.Empty;
+            mtbTreyler.Text = String.Empty;
+            mtbTreyler.Text = String.Empty;
+            mtbYear.Text = String.Empty;
+            metroComboBox1.SelectedItem = -1;
+            mtbDescryption.Text = String.Empty;
         }
 
 
         private void AddData()
         {
-            //Копирование картинки в папку DishImages
-            try
+            if (pictureBox1.Image != null && !File.Exists(copyTo) && !File.Exists(copyTo1))
             {
-                CopyFile(path, copyTo);
-                CopyFile(path1, copyTo1);
-            }
-            catch
-            {
+                if (mtbName.Text != String.Empty && !String.IsNullOrWhiteSpace(mtbName.Text))
+                {
+                    if (mtbDescryption.Text != String.Empty && !String.IsNullOrWhiteSpace(mtbDescryption.Text))
+                    {
+                        if (mtbImage.Text != String.Empty && !String.IsNullOrWhiteSpace(mtbImage.Text))
+                        {
+                            if (mtbTreyler.Text != String.Empty && !String.IsNullOrWhiteSpace(mtbTreyler.Text))
+                            {
+                                //Копирование картинки в папку DishImages
+                                try
+                                {
+                                    CopyFile(path, copyTo);
+                                    CopyFile(path1, copyTo1);
+                                }
+                                catch
+                                {
 
-            }
+                                }
 
-            //Добавление записей в БД
-            SqlConnection connection = new SqlConnection(connectionString);
-            try
-            {
-                connection.Open();
+                                //Добавление записей в БД
+                                SqlConnection connection = new SqlConnection(connectionString);
+                                try
+                                {
+                                    connection.Open();
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                connection.Close();
-            }
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message);
+                                    connection.Close();
+                                }
 
-            SqlCommand command_proverka = new SqlCommand("SELECT Video_Id FROM Video WHERE Video_name = N'" + mtbName.Text + "'", connection);
-            SqlDataReader reader_proverka = command_proverka.ExecuteReader();
-            int count = 0;
-            while (reader_proverka.Read())
-            {
-                count++;
-            }
-            reader_proverka.Close();
-            if (count == 0)
-            {
-                SqlCommand command = new SqlCommand("INSERT INTO Video(Video_name, Video_zhanr, Video_Descryption, Video_Year, Video_Image, Video_Treyler) VALUES (N'" + mtbName.Text + "', N'" + metroComboBox1.Text + "', N'" + mtbDescryption.Text + "', N'" + mtbYear.Text + "', N'" + mtbImage.Text + "', N'" + mtbTreyler.Text + "')", connection);
-                command.ExecuteNonQuery();
+                                SqlCommand command_proverka = new SqlCommand("SELECT Video_Id FROM Video WHERE Video_name = N'" + mtbName.Text + "'", connection);
+                                SqlDataReader reader_proverka = command_proverka.ExecuteReader();
+                                int count = 0;
+                                while (reader_proverka.Read())
+                                {
+                                    count++;
+                                }
+                                reader_proverka.Close();
+                                if (count == 0)
+                                {
+                                    SqlCommand command = new SqlCommand("INSERT INTO Video(Video_name, Video_zhanr, Video_Descryption, Video_Year, Video_Image, Video_Treyler) VALUES (N'" + mtbName.Text + "', N'" + metroComboBox1.Text + "', N'" + mtbDescryption.Text + "', N'" + mtbYear.Text + "', N'" + mtbImage.Text + "', N'" + mtbTreyler.Text + "')", connection);
+                                    command.ExecuteNonQuery();
 
-                connection.Close();
-                copyTo = "";
-                UpdateForm(form);
+                                    connection.Close();
+                                    copyTo = "";
+                                    UpdateForm(form);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Такой фильм уже есть, смените название или выберите другой фильм!");
+                                }
+                                connection.Close();
+                            }
+                        }
+                    }
+                }
+                
             }
-            else
-            {
-                MessageBox.Show("Такой фильм уже есть, смените название или выберите другой фильм!");
-            }
-            connection.Close();
+        }
+
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
 
         private void UpdateForm(Form1 form)

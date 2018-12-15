@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
-            this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.metroTile3 = new MetroFramework.Controls.MetroTile();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
@@ -37,7 +36,7 @@
             // metroTile1
             // 
             this.metroTile1.ActiveControl = null;
-            this.metroTile1.Location = new System.Drawing.Point(148, 82);
+            this.metroTile1.Location = new System.Drawing.Point(23, 82);
             this.metroTile1.Name = "metroTile1";
             this.metroTile1.Size = new System.Drawing.Size(136, 41);
             this.metroTile1.TabIndex = 0;
@@ -48,23 +47,10 @@
             this.metroTile1.UseTileImage = true;
             this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
             // 
-            // metroTile2
-            // 
-            this.metroTile2.ActiveControl = null;
-            this.metroTile2.Location = new System.Drawing.Point(308, 82);
-            this.metroTile2.Name = "metroTile2";
-            this.metroTile2.Size = new System.Drawing.Size(136, 41);
-            this.metroTile2.TabIndex = 0;
-            this.metroTile2.Text = "Изменить";
-            this.metroTile2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.metroTile2.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroTile2.UseSelectable = true;
-            this.metroTile2.UseTileImage = true;
-            // 
             // metroTile3
             // 
             this.metroTile3.ActiveControl = null;
-            this.metroTile3.Location = new System.Drawing.Point(468, 82);
+            this.metroTile3.Location = new System.Drawing.Point(165, 82);
             this.metroTile3.Name = "metroTile3";
             this.metroTile3.Size = new System.Drawing.Size(136, 41);
             this.metroTile3.TabIndex = 0;
@@ -89,7 +75,6 @@
             this.ClientSize = new System.Drawing.Size(741, 498);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.metroTile3);
-            this.Controls.Add(this.metroTile2);
             this.Controls.Add(this.metroTile1);
             this.MaximizeBox = false;
             this.Name = "PanelAdminaForm";
@@ -104,7 +89,6 @@
         #endregion
 
         private MetroFramework.Controls.MetroTile metroTile1;
-        private MetroFramework.Controls.MetroTile metroTile2;
         private MetroFramework.Controls.MetroTile metroTile3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }

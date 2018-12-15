@@ -31,19 +31,19 @@
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.mtbDescryption = new MetroFramework.Controls.MetroTextBox();
+            this.mtbYear = new MetroFramework.Controls.MetroTextBox();
             this.mtbName = new MetroFramework.Controls.MetroTextBox();
             this.mtbTreyler = new MetroFramework.Controls.MetroTextBox();
             this.mtbImage = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.metroButton4 = new MetroFramework.Controls.MetroButton();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.mtbYear = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -125,6 +125,37 @@
             this.mtbDescryption.UseSelectable = true;
             this.mtbDescryption.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mtbDescryption.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // mtbYear
+            // 
+            // 
+            // 
+            // 
+            this.mtbYear.CustomButton.Image = null;
+            this.mtbYear.CustomButton.Location = new System.Drawing.Point(90, 1);
+            this.mtbYear.CustomButton.Name = "";
+            this.mtbYear.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.mtbYear.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.mtbYear.CustomButton.TabIndex = 1;
+            this.mtbYear.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.mtbYear.CustomButton.UseSelectable = true;
+            this.mtbYear.CustomButton.Visible = false;
+            this.mtbYear.Lines = new string[0];
+            this.mtbYear.Location = new System.Drawing.Point(177, 140);
+            this.mtbYear.MaxLength = 32767;
+            this.mtbYear.Name = "mtbYear";
+            this.mtbYear.PasswordChar = '\0';
+            this.mtbYear.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.mtbYear.SelectedText = "";
+            this.mtbYear.SelectionLength = 0;
+            this.mtbYear.SelectionStart = 0;
+            this.mtbYear.ShortcutsEnabled = true;
+            this.mtbYear.Size = new System.Drawing.Size(112, 23);
+            this.mtbYear.TabIndex = 5;
+            this.mtbYear.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.mtbYear.UseSelectable = true;
+            this.mtbYear.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.mtbYear.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // mtbName
             // 
@@ -239,6 +270,16 @@
             this.metroLabel2.Text = "Категория";
             this.metroLabel2.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(141, 140);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(30, 19);
+            this.metroLabel4.TabIndex = 4;
+            this.metroLabel4.Text = "Год";
+            this.metroLabel4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
@@ -258,6 +299,7 @@
             this.metroButton3.Text = "Отменить";
             this.metroButton3.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroButton3.UseSelectable = true;
+            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
             // 
             // metroButton2
             // 
@@ -302,47 +344,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // mtbYear
-            // 
-            // 
-            // 
-            // 
-            this.mtbYear.CustomButton.Image = null;
-            this.mtbYear.CustomButton.Location = new System.Drawing.Point(90, 1);
-            this.mtbYear.CustomButton.Name = "";
-            this.mtbYear.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.mtbYear.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.mtbYear.CustomButton.TabIndex = 1;
-            this.mtbYear.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.mtbYear.CustomButton.UseSelectable = true;
-            this.mtbYear.CustomButton.Visible = false;
-            this.mtbYear.Lines = new string[0];
-            this.mtbYear.Location = new System.Drawing.Point(177, 140);
-            this.mtbYear.MaxLength = 32767;
-            this.mtbYear.Name = "mtbYear";
-            this.mtbYear.PasswordChar = '\0';
-            this.mtbYear.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.mtbYear.SelectedText = "";
-            this.mtbYear.SelectionLength = 0;
-            this.mtbYear.SelectionStart = 0;
-            this.mtbYear.ShortcutsEnabled = true;
-            this.mtbYear.Size = new System.Drawing.Size(112, 23);
-            this.mtbYear.TabIndex = 5;
-            this.mtbYear.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.mtbYear.UseSelectable = true;
-            this.mtbYear.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.mtbYear.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel4
-            // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(141, 140);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(30, 19);
-            this.metroLabel4.TabIndex = 4;
-            this.metroLabel4.Text = "Год";
-            this.metroLabel4.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // AddNewFilmControl
             // 

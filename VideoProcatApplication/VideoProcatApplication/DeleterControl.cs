@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace VideoProcatApplication
 {
@@ -58,6 +59,75 @@ namespace VideoProcatApplication
 
         private void metroPanel1_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            if (metroTextBox1.Text != String.Empty && !String.IsNullOrWhiteSpace(metroTextBox1.Text))
+            {
+                SqlConnection connection = new SqlConnection(connectionString);
+                try
+                {
+                    connection.Open();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    connection.Close();
+                }
+                string deletingImage = "";
+                string deletingTreyler = "";
+                SqlCommand command1 = new SqlCommand("SELECT Video_Image, Video_Treyler FROM Video WHERE Video_Id = N'" + metroTextBox1.Text + "' ", connection);
+                SqlDataReader reader;
+                reader = command1.ExecuteReader();
+                while (reader.Read())
+                {
+                    deletingImage = Application.StartupPath + reader["Video_Image"];
+                    deletingTreyler = Application.StartupPath + reader["Video_Treyler"];
+                }
+                reader.Close();
+
+
+                SqlCommand command = new SqlCommand("DELETE FROM Video WHERE Video_Id = N'" + metroTextBox1.Text + "' ", connection);
+                command.ExecuteNonQuery();
+                metroGrid1.Rows.Clear();
+                fillGrid();
+                UpdateForm(form1);
+                connection.Close();
+
+                try
+                {
+                    if (File.Exists(deletingImage))
+                    {
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        FileInfo f = new FileInfo(deletingImage);
+                        f.Delete();
+                    }
+                    if (File.Exists(deletingTreyler))
+                    {
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        FileInfo f = new FileInfo(deletingTreyler);
+                        f.Delete();
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+    
+                }
+            }
+        }
+
+        private void UpdateForm(Form1 form)
+        {
+
+            form.flowLayoutPanel1.Controls.Clear();
+
+            form.getFilms();
 
         }
     }
