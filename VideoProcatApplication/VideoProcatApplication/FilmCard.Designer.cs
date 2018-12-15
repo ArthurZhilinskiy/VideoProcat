@@ -37,9 +37,9 @@
             // metroTile1
             // 
             this.metroTile1.ActiveControl = null;
-            this.metroTile1.Location = new System.Drawing.Point(5, 31);
+            this.metroTile1.Location = new System.Drawing.Point(16, 31);
             this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(133, 145);
+            this.metroTile1.Size = new System.Drawing.Size(110, 145);
             this.metroTile1.TabIndex = 0;
             this.metroTile1.UseSelectable = true;
             this.metroTile1.UseTileImage = true;

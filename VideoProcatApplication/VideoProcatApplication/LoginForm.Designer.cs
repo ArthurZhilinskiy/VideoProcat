@@ -70,7 +70,8 @@
             this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTextBox1.CustomButton.UseSelectable = true;
             this.metroTextBox1.CustomButton.Visible = false;
-            this.metroTextBox1.Lines = new string[0];
+            this.metroTextBox1.Lines = new string[] {
+        "admin"};
             this.metroTextBox1.Location = new System.Drawing.Point(86, 80);
             this.metroTextBox1.MaxLength = 32767;
             this.metroTextBox1.Name = "metroTextBox1";
@@ -82,6 +83,7 @@
             this.metroTextBox1.ShortcutsEnabled = true;
             this.metroTextBox1.Size = new System.Drawing.Size(223, 23);
             this.metroTextBox1.TabIndex = 6;
+            this.metroTextBox1.Text = "admin";
             this.metroTextBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroTextBox1.UseSelectable = true;
             this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -101,7 +103,8 @@
             this.metroTextBox2.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTextBox2.CustomButton.UseSelectable = true;
             this.metroTextBox2.CustomButton.Visible = false;
-            this.metroTextBox2.Lines = new string[0];
+            this.metroTextBox2.Lines = new string[] {
+        "admin"};
             this.metroTextBox2.Location = new System.Drawing.Point(86, 112);
             this.metroTextBox2.MaxLength = 32767;
             this.metroTextBox2.Name = "metroTextBox2";
@@ -113,6 +116,7 @@
             this.metroTextBox2.ShortcutsEnabled = true;
             this.metroTextBox2.Size = new System.Drawing.Size(223, 23);
             this.metroTextBox2.TabIndex = 7;
+            this.metroTextBox2.Text = "admin";
             this.metroTextBox2.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroTextBox2.UseSelectable = true;
             this.metroTextBox2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));

@@ -32,8 +32,6 @@
             this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.metroTile3 = new MetroFramework.Controls.MetroTile();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.addNewFilmControl1 = new VideoProcatApplication.AddNewFilmControl();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroTile1
@@ -48,6 +46,7 @@
             this.metroTile1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroTile1.UseSelectable = true;
             this.metroTile1.UseTileImage = true;
+            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
             // 
             // metroTile2
             // 
@@ -74,21 +73,14 @@
             this.metroTile3.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroTile3.UseSelectable = true;
             this.metroTile3.UseTileImage = true;
+            this.metroTile3.Click += new System.EventHandler(this.metroTile3_Click);
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.addNewFilmControl1);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(23, 139);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(695, 336);
             this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // addNewFilmControl1
-            // 
-            this.addNewFilmControl1.Location = new System.Drawing.Point(3, 3);
-            this.addNewFilmControl1.Name = "addNewFilmControl1";
-            this.addNewFilmControl1.Size = new System.Drawing.Size(690, 300);
-            this.addNewFilmControl1.TabIndex = 0;
             // 
             // PanelAdminaForm
             // 
@@ -105,7 +97,6 @@
             this.Style = MetroFramework.MetroColorStyle.Lime;
             this.Text = "Панель администратора";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -116,6 +107,5 @@
         private MetroFramework.Controls.MetroTile metroTile2;
         private MetroFramework.Controls.MetroTile metroTile3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private AddNewFilmControl addNewFilmControl1;
     }
 }

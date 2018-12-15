@@ -15,10 +15,11 @@ namespace VideoProcatApplication
     {
         string connectionString = @"Data Source=(local)\SQLEXPRESS;AttachDbFilename=" + Application.StartupPath + @"\VideoProcat.mdf;Integrated Security=True";
 
-
-        public LoginForm()
+        Form1 form;
+        public LoginForm(Form1 form)
         {
             InitializeComponent();
+            this.form = form;
         }
 
         
@@ -49,7 +50,7 @@ namespace VideoProcatApplication
 
             if (i == 1)
             {
-                PanelAdminaForm panelAdminaForm = new PanelAdminaForm();
+                PanelAdminaForm panelAdminaForm = new PanelAdminaForm(form);
                 panelAdminaForm.Show();
             }
             else

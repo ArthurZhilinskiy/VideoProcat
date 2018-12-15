@@ -40,7 +40,7 @@ namespace VideoProcatApplication
             // Загружаем исходное изображение
             var defaultImage = new Bitmap(Image.FromFile(image));
             // Масштабируем до нужного размера
-            var scalingImage = new Bitmap(defaultImage, 133, 145);
+            var scalingImage = new Bitmap(defaultImage, 110, 145);
             metroTile1.TileImage = scalingImage;
 
             metroLabel1.Text = name;

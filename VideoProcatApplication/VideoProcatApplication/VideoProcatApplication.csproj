@@ -73,6 +73,12 @@
     <Compile Include="AddNewFilmControl.Designer.cs">
       <DependentUpon>AddNewFilmControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeleterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeleterControl.Designer.cs">
+      <DependentUpon>DeleterControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ErrorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddNewFilmControl.resx">
       <DependentUpon>AddNewFilmControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleterControl.resx">
+      <DependentUpon>DeleterControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ErrorForm.resx">
       <DependentUpon>ErrorForm.cs</DependentUpon>

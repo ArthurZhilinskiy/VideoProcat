@@ -43,8 +43,9 @@ namespace VideoProcatApplication
             reader = command.ExecuteReader();
             while (reader.Read())
             {
-                string image_path = Application.StartupPath + @"\" + reader["Video_Image"].ToString();
-                FilmCard cart = new FilmCard(reader["Video_name"].ToString(), reader["Video_zhanr"].ToString(), reader["Video_Descryption"].ToString(), reader["Video_Year"].ToString(), reader["Video_Treyler"].ToString(), image_path, this);
+                string image_path = Application.StartupPath + reader["Video_Image"].ToString();
+                string video_tryler = Application.StartupPath + reader["Video_treyler"].ToString();
+                FilmCard cart = new FilmCard(reader["Video_name"].ToString(), reader["Video_zhanr"].ToString(), reader["Video_Descryption"].ToString(), reader["Video_Year"].ToString(), video_tryler, image_path, this);
 
                 flowLayoutPanel1.Controls.Add(cart);
             }
@@ -76,8 +77,9 @@ namespace VideoProcatApplication
             reader = command.ExecuteReader();
             while (reader.Read())
             {
-                string image_path = Application.StartupPath + @"\" + reader["Video_Image"].ToString();
-                FilmCard cart = new FilmCard(reader["Video_name"].ToString(), reader["Video_zhanr"].ToString(), reader["Video_Descryption"].ToString(), reader["Video_Year"].ToString(), reader["Video_Treyler"].ToString(), image_path, this);
+                string image_path = Application.StartupPath + reader["Video_Image"].ToString();
+                string video_tryler = Application.StartupPath + reader["Video_treyler"].ToString();
+                FilmCard cart = new FilmCard(reader["Video_name"].ToString(), reader["Video_zhanr"].ToString(), reader["Video_Descryption"].ToString(), reader["Video_Year"].ToString(), video_tryler, image_path, this);
 
                 cart.metroTile1.Click += new System.EventHandler(cart_Click);
 
@@ -106,8 +108,9 @@ namespace VideoProcatApplication
             reader = command.ExecuteReader();
             while (reader.Read())
             {
-                string image_path = Application.StartupPath + @"\" + reader["Video_Image"].ToString();
-                FilmCard cart = new FilmCard(reader["Video_name"].ToString(), reader["Video_zhanr"].ToString(), reader["Video_Descryption"].ToString(), reader["Video_Year"].ToString(), reader["Video_Treyler"].ToString(), image_path, this);
+                string image_path = Application.StartupPath + reader["Video_Image"].ToString();
+                string video_tryler = Application.StartupPath + reader["Video_treyler"].ToString();
+                FilmCard cart = new FilmCard(reader["Video_name"].ToString(), reader["Video_zhanr"].ToString(), reader["Video_Descryption"].ToString(), reader["Video_Year"].ToString(), video_tryler, image_path, this);
 
                 cart.metroTile1.Click += new System.EventHandler(cart_Click);
 
@@ -136,8 +139,9 @@ namespace VideoProcatApplication
             reader = command.ExecuteReader();
             while (reader.Read())
             {
-                string image_path = Application.StartupPath + @"\" + reader["Video_Image"].ToString();
-                FilmCard cart = new FilmCard(reader["Video_name"].ToString(), reader["Video_zhanr"].ToString(), reader["Video_Descryption"].ToString(), reader["Video_Year"].ToString(), reader["Video_Treyler"].ToString(), image_path, this);
+                string image_path = Application.StartupPath + reader["Video_Image"].ToString();
+                string video_tryler = Application.StartupPath + reader["Video_treyler"].ToString();
+                FilmCard cart = new FilmCard(reader["Video_name"].ToString(), reader["Video_zhanr"].ToString(), reader["Video_Descryption"].ToString(), reader["Video_Year"].ToString(), video_tryler, image_path, this);
 
                 cart.metroTile1.Click += new System.EventHandler(cart_Click);
 
@@ -150,6 +154,12 @@ namespace VideoProcatApplication
         {
             flowLayoutPanel1.Controls.Clear();
             getFilms();
+        }
+
+        private void metroLink5_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm(this);
+            loginForm.ShowDialog();
         }
 
         private void metroTile1_Click(object sender, EventArgs e)
@@ -177,8 +187,9 @@ namespace VideoProcatApplication
             reader = command.ExecuteReader();
             while (reader.Read())
             {
-                string image_path = Application.StartupPath + @"\" + reader["Video_Image"].ToString();
-                FilmCard cart = new FilmCard(reader["Video_name"].ToString(), reader["Video_zhanr"].ToString(), reader["Video_Descryption"].ToString(), reader["Video_Year"].ToString(), reader["Video_Treyler"].ToString(), image_path, this);
+                string image_path = Application.StartupPath + reader["Video_Image"].ToString();
+                string video_tryler = Application.StartupPath + reader["Video_treyler"].ToString();
+                FilmCard cart = new FilmCard(reader["Video_name"].ToString(), reader["Video_zhanr"].ToString(), reader["Video_Descryption"].ToString(), reader["Video_Year"].ToString(), video_tryler, image_path, this);
 
                 cart.metroTile1.Click += new System.EventHandler(cart_Click);
 
@@ -187,10 +198,37 @@ namespace VideoProcatApplication
             connection.Close();
         }
 
-        private void metroLink5_Click(object sender, EventArgs e)
+        
+
+        private void metroLink6_Click(object sender, EventArgs e)
         {
-            LoginForm loginForm = new LoginForm();
-            loginForm.ShowDialog();
+            flowLayoutPanel1.Controls.Clear();
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                connection.Close();
+            }
+
+            SqlCommand command = new SqlCommand("SELECT * FROM Video WHERE Video_zhanr = 'Сериал'", connection);
+            SqlDataReader reader;
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                string image_path = Application.StartupPath + reader["Video_Image"].ToString();
+                string video_tryler = Application.StartupPath + reader["Video_treyler"].ToString();
+                FilmCard cart = new FilmCard(reader["Video_name"].ToString(), reader["Video_zhanr"].ToString(), reader["Video_Descryption"].ToString(), reader["Video_Year"].ToString(), video_tryler, image_path, this);
+
+                cart.metroTile1.Click += new System.EventHandler(cart_Click);
+
+                flowLayoutPanel1.Controls.Add(cart);
+            }
+            connection.Close();
         }
     }
 }
