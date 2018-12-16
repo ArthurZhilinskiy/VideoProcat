@@ -22,42 +22,43 @@ namespace VideoProcatApplication
             this.form = form;
         }
 
-        
-
         private void metroButton1_Click(object sender, EventArgs e)
         {
             SqlConnection connection = new SqlConnection(connectionString);
             try
             {
                 connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM Users WHERE User_name = N'" + metroTextBox1.Text + "' AND User_login = N'" + metroTextBox2.Text + "'", connection);
+                SqlDataReader reader;
+                reader = command.ExecuteReader();
+                int i = 0;
+                while (reader.Read())
+                {
+                    i++;
+                }
+                connection.Close();
 
+                if (i == 1)
+                {
+                    PanelAdminaForm panelAdminaForm = new PanelAdminaForm(form);
+                    panelAdminaForm.Show();
+                }
+                else
+                {
+                    ErrorForm ef = new ErrorForm();
+                    ef.ShowDialog();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
                 connection.Close();
             }
 
-            SqlCommand command = new SqlCommand("SELECT * FROM Users WHERE User_name = N'"+metroTextBox1.Text+"' AND User_login = N'"+metroTextBox2.Text+"'", connection);
-            SqlDataReader reader;
-            reader = command.ExecuteReader();
-            int i = 0;
-            while (reader.Read())
-            {
-                i++;
-            }
-            connection.Close();
-
-            if (i == 1)
-            {
-                PanelAdminaForm panelAdminaForm = new PanelAdminaForm(form);
-                panelAdminaForm.Show();
-            }
-            else
-            {
-                ErrorForm ef = new ErrorForm();
-                ef.ShowDialog();
-            }
+            
         }
 
         private void metroButton2_Click(object sender, EventArgs e)

@@ -36,7 +36,6 @@ namespace VideoProcatApplication
             mtbTreyler.Text = String.Empty;
             mtbTreyler.Text = String.Empty;
             mtbYear.Text = String.Empty;
-            metroComboBox1.SelectedItem = -1;
             mtbDescryption.Text = String.Empty;
         }
 
@@ -61,7 +60,7 @@ namespace VideoProcatApplication
                                 }
                                 catch
                                 {
-
+                                    MessageBox.Show("Очень плохой знак!");
                                 }
 
                                 //Добавление записей в БД
@@ -69,34 +68,35 @@ namespace VideoProcatApplication
                                 try
                                 {
                                     connection.Open();
+                                    SqlCommand command_proverka = new SqlCommand("SELECT Video_Id FROM Video WHERE Video_name = N'" + mtbName.Text + "'", connection);
+                                    SqlDataReader reader_proverka = command_proverka.ExecuteReader();
+                                    int count = 0;
+                                    while (reader_proverka.Read())
+                                    {
+                                        count++;
+                                    }
+                                    reader_proverka.Close();
+                                    if (count == 0)
+                                    {
+                                        SqlCommand command = new SqlCommand("INSERT INTO Video(Video_name, Video_zhanr, Video_Descryption, Video_Year, Video_Image, Video_Treyler) VALUES (N'" + mtbName.Text + "', N'" + metroComboBox1.Text + "', N'" + mtbDescryption.Text + "', N'" + mtbYear.Text + "', N'" + mtbImage.Text + "', N'" + mtbTreyler.Text + "')", connection);
+                                        command.ExecuteNonQuery();
 
+                                        connection.Close();
+                                        copyTo = "";
+                                        UpdateForm(form);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Такой фильм уже есть, смените название или выберите другой фильм!");
+                                    }
                                 }
                                 catch (Exception ex)
                                 {
                                     MessageBox.Show(ex.Message);
+                                }
+                                finally
+                                {
                                     connection.Close();
-                                }
-
-                                SqlCommand command_proverka = new SqlCommand("SELECT Video_Id FROM Video WHERE Video_name = N'" + mtbName.Text + "'", connection);
-                                SqlDataReader reader_proverka = command_proverka.ExecuteReader();
-                                int count = 0;
-                                while (reader_proverka.Read())
-                                {
-                                    count++;
-                                }
-                                reader_proverka.Close();
-                                if (count == 0)
-                                {
-                                    SqlCommand command = new SqlCommand("INSERT INTO Video(Video_name, Video_zhanr, Video_Descryption, Video_Year, Video_Image, Video_Treyler) VALUES (N'" + mtbName.Text + "', N'" + metroComboBox1.Text + "', N'" + mtbDescryption.Text + "', N'" + mtbYear.Text + "', N'" + mtbImage.Text + "', N'" + mtbTreyler.Text + "')", connection);
-                                    command.ExecuteNonQuery();
-
-                                    connection.Close();
-                                    copyTo = "";
-                                    UpdateForm(form);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Такой фильм уже есть, смените название или выберите другой фильм!");
                                 }
                                 connection.Close();
                             }
@@ -115,9 +115,7 @@ namespace VideoProcatApplication
         private void UpdateForm(Form1 form)
         {
             form.flowLayoutPanel1.Controls.Clear();
-
             form.getFilms();
-
         }
 
         private void metroButton4_Click(object sender, EventArgs e)
@@ -142,10 +140,8 @@ namespace VideoProcatApplication
 
         void CopyFile(string from, string to)
         {
-
             FileInfo fn = new FileInfo(from);
             fn.CopyTo(to);
-
         }
 
 

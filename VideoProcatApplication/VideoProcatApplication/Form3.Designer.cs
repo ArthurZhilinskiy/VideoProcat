@@ -120,7 +120,6 @@
             this.mlYear.TabIndex = 3;
             this.mlYear.Text = "Год";
             this.mlYear.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.mlYear.Click += new System.EventHandler(this.mlYear_Click);
             // 
             // metroLabel5
             // 

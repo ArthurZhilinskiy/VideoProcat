@@ -39,6 +39,7 @@
             this.metroTile1.Location = new System.Drawing.Point(23, 82);
             this.metroTile1.Name = "metroTile1";
             this.metroTile1.Size = new System.Drawing.Size(136, 41);
+            this.metroTile1.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTile1.TabIndex = 0;
             this.metroTile1.Text = "Добавить";
             this.metroTile1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -53,6 +54,7 @@
             this.metroTile3.Location = new System.Drawing.Point(165, 82);
             this.metroTile3.Name = "metroTile3";
             this.metroTile3.Size = new System.Drawing.Size(136, 41);
+            this.metroTile3.Style = MetroFramework.MetroColorStyle.Red;
             this.metroTile3.TabIndex = 0;
             this.metroTile3.Text = "Удалить";
             this.metroTile3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -63,9 +65,9 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(23, 139);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(23, 129);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(695, 336);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(695, 346);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // PanelAdminaForm
@@ -79,7 +81,7 @@
             this.MaximizeBox = false;
             this.Name = "PanelAdminaForm";
             this.Resizable = false;
-            this.Style = MetroFramework.MetroColorStyle.Lime;
+            this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Панель администратора";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.ResumeLayout(false);

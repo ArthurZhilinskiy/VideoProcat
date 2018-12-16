@@ -130,5 +130,15 @@ namespace VideoProcatApplication
             form.getFilms();
 
         }
+
+        private void metroGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void metroGrid1_SelectionChanged(object sender, EventArgs e)
+        {
+            metroTextBox1.Text = (string) metroGrid1.CurrentRow.Cells[0].Value;
+        }
     }
 }

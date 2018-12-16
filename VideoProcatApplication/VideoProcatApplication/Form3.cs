@@ -17,12 +17,6 @@ namespace VideoProcatApplication
             InitializeComponent();
         }
 
-        
-
-        private void mlYear_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
