@@ -226,5 +226,10 @@ namespace VideoProcatApplication
                 connection.Close();
             }
         }
+
+        private void metroLink7_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Help.ShowHelp(null, "file://" + Application.StartupPath + @"\help.chm");
+        }
     }
 }

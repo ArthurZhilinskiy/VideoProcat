@@ -37,6 +37,7 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLink4 = new MetroFramework.Controls.MetroLink();
             this.metroLink6 = new MetroFramework.Controls.MetroLink();
+            this.metroLink7 = new MetroFramework.Controls.MetroLink();
             this.SuspendLayout();
             // 
             // metroLink1
@@ -89,7 +90,7 @@
             // metroLink5
             // 
             this.metroLink5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.metroLink5.Location = new System.Drawing.Point(23, 415);
+            this.metroLink5.Location = new System.Drawing.Point(23, 386);
             this.metroLink5.Name = "metroLink5";
             this.metroLink5.Size = new System.Drawing.Size(148, 23);
             this.metroLink5.TabIndex = 0;
@@ -165,6 +166,19 @@
             this.metroLink6.UseSelectable = true;
             this.metroLink6.Click += new System.EventHandler(this.metroLink6_Click);
             // 
+            // metroLink7
+            // 
+            this.metroLink7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.metroLink7.Location = new System.Drawing.Point(23, 415);
+            this.metroLink7.Name = "metroLink7";
+            this.metroLink7.Size = new System.Drawing.Size(148, 23);
+            this.metroLink7.TabIndex = 0;
+            this.metroLink7.Text = "Справка";
+            this.metroLink7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroLink7.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLink7.UseSelectable = true;
+            this.metroLink7.Click += new System.EventHandler(this.metroLink7_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -173,6 +187,7 @@
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.metroTextBox1);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.metroLink7);
             this.Controls.Add(this.metroLink5);
             this.Controls.Add(this.metroLink6);
             this.Controls.Add(this.metroLink4);
@@ -203,6 +218,7 @@
         private MetroFramework.Controls.MetroLink metroLink4;
         private MetroFramework.Controls.MetroLink metroLink6;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private MetroFramework.Controls.MetroLink metroLink7;
     }
 }
 
