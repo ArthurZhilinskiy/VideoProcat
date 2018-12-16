@@ -70,70 +70,63 @@ namespace VideoProcatApplication
                 try
                 {
                     connection.Open();
+                    string deletingImage = "";
+                    string deletingTreyler = "";
+                    SqlCommand command1 = new SqlCommand("SELECT Video_Image, Video_Treyler FROM Video WHERE Video_Id = N'" + metroTextBox1.Text + "' ", connection);
+                    SqlDataReader reader;
+                    reader = command1.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        deletingImage = Application.StartupPath + reader["Video_Image"];
+                        deletingTreyler = Application.StartupPath + reader["Video_Treyler"];
+                    }
+                    reader.Close();
 
+                    SqlCommand command = new SqlCommand("DELETE FROM Video WHERE Video_Id = N'" + metroTextBox1.Text + "' ", connection);
+                    command.ExecuteNonQuery();
+                    metroGrid1.Rows.Clear();
+                    fillGrid();
+                    UpdateForm(form1);
+
+                    try
+                    {
+                        if (File.Exists(deletingImage))
+                        {
+                            GC.Collect();
+                            GC.WaitForPendingFinalizers();
+                            FileInfo f = new FileInfo(deletingImage);
+                            f.Delete();
+                        }
+                        if (File.Exists(deletingTreyler))
+                        {
+                            GC.Collect();
+                            GC.WaitForPendingFinalizers();
+                            FileInfo f = new FileInfo(deletingTreyler);
+                            f.Delete();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+
+                    }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
+                }
+                finally
+                {
                     connection.Close();
-                }
-                string deletingImage = "";
-                string deletingTreyler = "";
-                SqlCommand command1 = new SqlCommand("SELECT Video_Image, Video_Treyler FROM Video WHERE Video_Id = N'" + metroTextBox1.Text + "' ", connection);
-                SqlDataReader reader;
-                reader = command1.ExecuteReader();
-                while (reader.Read())
-                {
-                    deletingImage = Application.StartupPath + reader["Video_Image"];
-                    deletingTreyler = Application.StartupPath + reader["Video_Treyler"];
-                }
-                reader.Close();
-
-
-                SqlCommand command = new SqlCommand("DELETE FROM Video WHERE Video_Id = N'" + metroTextBox1.Text + "' ", connection);
-                command.ExecuteNonQuery();
-                metroGrid1.Rows.Clear();
-                fillGrid();
-                UpdateForm(form1);
-                connection.Close();
-
-                try
-                {
-                    if (File.Exists(deletingImage))
-                    {
-                        GC.Collect();
-                        GC.WaitForPendingFinalizers();
-                        FileInfo f = new FileInfo(deletingImage);
-                        f.Delete();
-                    }
-                    if (File.Exists(deletingTreyler))
-                    {
-                        GC.Collect();
-                        GC.WaitForPendingFinalizers();
-                        FileInfo f = new FileInfo(deletingTreyler);
-                        f.Delete();
-                    }
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-    
                 }
             }
         }
 
         private void UpdateForm(Form1 form)
         {
-
             form.flowLayoutPanel1.Controls.Clear();
 
             form.getFilms();
-
-        }
-
-        private void metroGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void metroGrid1_SelectionChanged(object sender, EventArgs e)
